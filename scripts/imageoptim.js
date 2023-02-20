@@ -2,6 +2,8 @@ const fs = require('fs')
 const sharp = require('sharp')
 const recursive = require('recursive-readdir')
 const IMAGES_FOLDER = './images/'
+const fromJpegToWebpExt = (image) => image.replace('.jpg', '.webp')
+
 sharp.cache(false)
 
 recursive(IMAGES_FOLDER, (err, files) => {
@@ -12,14 +14,15 @@ recursive(IMAGES_FOLDER, (err, files) => {
 
   images.forEach(async image => {
     const optimizedImage = await sharp(image)
-      .jpeg({ mozjpeg: true })
+      .webp({ effort: 6 })
       .toBuffer()
 
-    fs.writeFile(image, optimizedImage, (err) => {
+    const webpImage = fromJpegToWebpExt(image)
+    fs.writeFile(webpImage, optimizedImage, (err) => {
       if (err)
         console.error(err)
 
-      console.log('✅', image)
+      console.log('✅', webpImage)
     })
   })
 })
