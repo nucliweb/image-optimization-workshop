@@ -8,7 +8,6 @@ To optimize the images we'll use some npm packages, so we need installed in our 
 
 We need to initialize a npm project to install the npm dependencies and create scripts.
 
-
 ```bash
 npm init -y
 ```
@@ -21,38 +20,37 @@ We'll use [sharp](https://sharp.pixelplumbing.com/) to optimize images and [recu
 npm install -d sharp recursive-readdir
 ```
 
-> With the flag `-d` we'll install packages as a devDependencies, we don't need theses tools in production 
+> With the flag `-d` we'll install packages as a devDependencies, we don't need theses tools in production
 
-## Create the script
+## Create the script to convert to WebP
 
-Create the script `scripts/imageoptim.js` to use the installed packages and optimize the images.
+Create the script `scripts/imageoptim.js` to use the installed packages and optimize the images. **In this case we want to convert all the images to [WebP](https://developers.google.com/speed/webp/) image format**.
 
 ```js
-const fs = require('fs')
-const sharp = require('sharp')
-const recursive = require('recursive-readdir')
-const IMAGES_FOLDER = './images/'
-sharp.cache(false)
+const fs = require("fs");
+const sharp = require("sharp");
+const recursive = require("recursive-readdir");
+const IMAGES_FOLDER = "./images/";
+const fromJpegToWebpExt = (image) => image.replace(".jpg", ".webp");
+
+sharp.cache(false);
 
 recursive(IMAGES_FOLDER, (err, files) => {
-  if (err)
-    throw new Error(err)
+  if (err) throw new Error(err);
 
-  const images = files.filter(file => /\.(jpg)$/i.test(file))
+  const images = files.filter((file) => /\.(jpg)$/i.test(file));
 
-  images.forEach(async image => {
-    const optimizedImage = await sharp(image)
-      .jpeg({ mozjpeg: true })
-      .toBuffer()
+  images.forEach(async (image) => {
+    const optimizedImage = await sharp(image).webp({ effort: 6 }).toBuffer();
 
-    fs.writeFile(image, optimizedImage, (err) => {
-      if (err)
-        console.error(err)
+    const webpImage = fromJpegToWebpExt(image);
+    fs.writeFile(webpImage, optimizedImage, (err) => {
+      if (err) console.error(err);
 
-      console.log('✅', image)
-    })
-  })
-})
+      console.log("✅", webpImage);
+    });
+  });
+});
 ```
 
 ## Add a new npm script
@@ -61,10 +59,10 @@ Now, we can add a new npm script to call the process to optimize the images with
 
 ```json
 {
-   "scripts": {
+  "scripts": {
     "imageoptim": "node ./scripts/imageoptim.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  }
 }
 ```
 
