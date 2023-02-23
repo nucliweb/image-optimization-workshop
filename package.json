@@ -1,0 +1,34 @@
+{
+  "name": "image-optimization-workshop",
+  "version": "1.0.0",
+  "description": "Image Optimization Workshop, optimize all images",
+  "main": "index.js",
+  "scripts": {
+    "imageoptim": "node ./scripts/imageoptim.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nucliweb/image-optimization-workshop.git"
+  },
+  "keywords": [
+    "image",
+    "optimize",
+    "jpeg",
+    "jpg"
+  ],
+  "author": {
+    "name": "Joan León",
+    "twitter": "@nucliweb",
+    "email": "joan.leon@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nucliweb/image-optimization-workshop/issues"
+  },
+  "homepage": "https://github.com/nucliweb/image-optimization-workshop#readme",
+  "devDependencies": {
+    "recursive-readdir": "^2.2.3",
+    "sharp": "^0.31.3"
+  }
+}
