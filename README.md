@@ -94,52 +94,46 @@ Run the npm script with command `npm run imageoptim` to optimize all images.
 ...
 ```
 
-## Change the HTML
+## Change the CSS background images
 
-Now, we need to update the HTML code to load the best image format.
+Now, we can to update the CSS code to load the best image format... we'll need a little JS polyfil.
 
-#### Current image tag
+#### Add the next code to the end of the `<body>`
 
-```html
-<img
-  src="images/news/news-detail-header.jpg"
-  class="img-fluid news-detail-image"
-  alt="fine dining experience"
-/>
-```
-
-#### New image tag
+> These polyfills are from [webp-in-css](https://github.com/ai/webp-in-css) and [avif-in-css](https://github.com/nucliweb/avif-in-css) PostCSS plugins
 
 ```html
-<picture>
-  <source type="image/avif" srcset="images/news/news-detail-header.avif" />
-  <source type="image/webp" srcset="images/news/news-detail-header.webp" />
-  <source type="image/jpeg" srcset="images/news/news-detail-header.jpeg" />
-  <img
-    src="images/news/news-detail-header.jpg"
-    class="img-fluid news-detail-image"
-    alt="fine dining experience"
-  />
-</picture>
+<script>
+  {
+    let i = new Image();
+    i.onload = i.onerror = (_) => {
+      document.body.classList.add(i.height > 0 ? "avif" : "no-avif");
+    };
+    i.src =
+      "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=";
+  }
+  {
+    document.body.classList.remove("no-js");
+    var i = new Image();
+    i.onload = i.onerror = function () {
+      document.body.classList.add(i.height == 1 ? "webp" : "no-webp");
+    };
+    i.src =
+      "data:image/webp;base64,UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==";
+  }
+</script>
 ```
 
-#### Find and Replace
+#### Update the CSS
 
-We can use a regular expresion to automate the changes.
+Search the selector `.site-about-header` and add below the next code.
 
-**Find:**
+```css
+body.webp .site-about-header {
+  background-image: url("../images/header/briana-tozour-V_Nkf1E-vYA-unsplash.webp");
+}
 
-```
-<img src="(.*?)\.jpg" (.*?)>
-```
-
-**Replace:**
-
-```
-<picture>
-  <source type="image/avif" srcset="$1.avif">
-  <source type="image/webp" srcset="$1.webp">
-  <source type="image/jpeg" srcset="$1.jpeg">
-  <img src="$1.jpg" $2>
-</picture>
+body.avif .site-about-header {
+  background-image: url("../images/header/briana-tozour-V_Nkf1E-vYA-unsplash.avif");
+}
 ```
