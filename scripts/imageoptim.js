@@ -3,7 +3,7 @@ const sharp = require('sharp')
 const recursive = require('recursive-readdir')
 const IMAGES_FOLDER = './images/'
 const fromOrigianlToNewFormat = ({ imagename, format }) => imagename.replace('.jpg', format)
-const formats = ['jpeg', 'webp', 'avif']
+const { formats } = require('./formats')
 
 sharp.cache(false)
 
@@ -16,13 +16,14 @@ recursive(IMAGES_FOLDER, (err, files) => {
   images.forEach(image => {
     const imagename = image.split('.').slice(0, -1).join('.')
 
-    formats.forEach(async format => {
+    formats.forEach(async ({ width, format, suffix }) => {
 
       const optimizedImage = await sharp(image)
-      [format]()
+        [format]()
+        .resize(width)
         .toBuffer()
 
-      const newImageName = `${imagename}.${format}`
+      const newImageName = `${imagename}${suffix}.${format}`
       fs.writeFile(newImageName, optimizedImage, (err) => {
         if (err)
           console.error(err)
