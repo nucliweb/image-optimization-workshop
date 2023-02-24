@@ -297,14 +297,6 @@ strong {
   background-image: url('../images/header/luisa-brimble-aFzg83dvnAI-unsplash.jpg');
 }
 
-body.webp .site-about-header {
-  background-image: url("../images/header/briana-tozour-V_Nkf1E-vYA-unsplash.webp");
-}
-
-body.avif .site-about-header {
-  background-image: url("../images/header/briana-tozour-V_Nkf1E-vYA-unsplash.avif");
-}
-
 .site-news-header {
   background-image: url('../images/header/priscilla-du-preez-W3SEyZODn8U-unsplash.jpg');
 }
