@@ -161,3 +161,25 @@ Now, we need to update the HTML to load the responsive images, we can do it with
   />
 </picture>
 ```
+
+## CSS Responsive images
+
+To load the responsive images from the CSS, we can use the rule `@media`
+
+```css
+.site-about-header {
+  background-image: url('../images/header/briana-tozour-V_Nkf1E-vYA-unsplash.jpeg');
+}
+
+@media screen and (min-width: 768px) {
+  .site-about-header {
+    background-image: url('../images/header/briana-tozour-V_Nkf1E-vYA-unsplash-768.jpeg');
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .site-about-header {
+    background-image: url('../images/header/briana-tozour-V_Nkf1E-vYA-unsplash-1024.jpeg');
+  }
+}
+```

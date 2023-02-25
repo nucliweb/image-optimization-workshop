@@ -290,7 +290,19 @@ strong {
 }
 
 .site-about-header {
-  background-image: url('../images/header/briana-tozour-V_Nkf1E-vYA-unsplash.jpg');
+  background-image: url('../images/header/briana-tozour-V_Nkf1E-vYA-unsplash.jpeg');
+}
+
+@media screen and (min-width: 768px) {
+  .site-about-header {
+    background-image: url('../images/header/briana-tozour-V_Nkf1E-vYA-unsplash-768.jpeg');
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .site-about-header {
+    background-image: url('../images/header/briana-tozour-V_Nkf1E-vYA-unsplash-1024.jpeg');
+  }
 }
 
 .site-menu-header {
