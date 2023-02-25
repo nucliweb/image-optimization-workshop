@@ -290,19 +290,19 @@ strong {
 }
 
 .site-about-header {
-  background-image: url('../images/header/briana-tozour-V_Nkf1E-vYA-unsplash.jpg');
+  background-image: url('https://res.cloudinary.com/nucliweb/image/upload/f_auto/v1677268466/workshops/t3chfest-2023/images/header/briana-tozour-V_Nkf1E-vYA-unsplash.jpg');
 }
 
 .site-menu-header {
-  background-image: url('../images/header/luisa-brimble-aFzg83dvnAI-unsplash.jpg');
+  background-image: url('https://res.cloudinary.com/nucliweb/image/upload/f_auto/v1677268466/workshops/t3chfest-2023/images/header/luisa-brimble-aFzg83dvnAI-unsplash.jpg');
 }
 
 .site-news-header {
-  background-image: url('../images/header/priscilla-du-preez-W3SEyZODn8U-unsplash.jpg');
+  background-image: url('https://res.cloudinary.com/nucliweb/image/upload/f_auto/v1677268466/workshops/t3chfest-2023/images/header/priscilla-du-preez-W3SEyZODn8U-unsplash.jpg');
 }
 
 .site-contact-header {
-  background-image: url('../images/header/rod-long-I79Pgmhmy5M-unsplash.jpg');
+  background-image: url('https://res.cloudinary.com/nucliweb/image/upload/f_auto/v1677268466/workshops/t3chfest-2023/images/header/rod-long-I79Pgmhmy5M-unsplash.jpg');
 }
 
 .overlay {
@@ -637,7 +637,7 @@ strong {
 #BookingModal .modal-content::before {
   content: "";
   background-color: var(--white-color);
-  background-image: url('../images/sincerely-media-HoEYgBL_Gcs-unsplash.jpg');
+  background-image: url('https://res.cloudinary.com/nucliweb/image/upload/f_auto/v1677268466/workshops/t3chfest-2023/images/sincerely-media-HoEYgBL_Gcs-unsplash.jpg');
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
@@ -686,7 +686,7 @@ strong {
 }
 
 .BgImage {
-  background-image: url('../images/alex-haney-CAhjZmVk5H4-unsplash.jpg');
+  background-image: url('https://res.cloudinary.com/nucliweb/image/upload/f_auto/v1677268466/workshops/t3chfest-2023/images/alex-haney-CAhjZmVk5H4-unsplash.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -698,7 +698,7 @@ strong {
   FOOTER              
 -----------------------------------------*/
 .site-footer {
-  background-image: url('../images/daan-evers-tKN1WXrzQ3s-unsplash.jpg');
+  background-image: url('https://res.cloudinary.com/nucliweb/image/upload/f_auto/v1677268466/workshops/t3chfest-2023/images/daan-evers-tKN1WXrzQ3s-unsplash.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -845,7 +845,7 @@ strong {
   }
 
   #BookingModal .modal-content::before {
-    background-image: url('../images/sincerely-media-HoEYgBL_Gcs-unsplash-mobile.jpg');
+    background-image: url('https://res.cloudinary.com/nucliweb/image/upload/f_auto/v1677268466/workshops/t3chfest-2023/images/sincerely-media-HoEYgBL_Gcs-unsplash-mobile.jpg');
     background-position: bottom;
     top: auto;
     left: 0;
