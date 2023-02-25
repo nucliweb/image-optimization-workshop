@@ -1,5 +1,7 @@
 # Image Optimization Workshop
 
+[![Joan Leon](./assets/JoanLeon.jpg)](https://slides.com/joanleon/nucliweb)
+
 ## Releases links
 | Web | Repo |
 | --- | ----- |
