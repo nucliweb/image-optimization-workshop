@@ -21,17 +21,63 @@ We can edit the images format in the console and get the URL pattern to upload a
 Now, we need to update the HTML with the new URL to load the images via Cloudinary.
 
 ```html
-<img src="https://res.cloudinary.com/nucliweb/image/upload/f_auto/v1677268466/workshops/t3chfest-2023/images/news/pablo-merchan-montes-Orz90t6o0e4-unsplash.jpg" class="img-fluid news-image" alt="">
+<img
+  src="https://res.cloudinary.com/nucliweb/image/upload/f_auto/v1677268466/workshops/t3chfest-2023/images/news/pablo-merchan-montes-Orz90t6o0e4-unsplash.jpg"
+  class="img-fluid news-image"
+  alt=""
+/>
 ```
 
 ## Update the CSS
 
 ```css
 .BgImage {
-  background-image: url('https://res.cloudinary.com/nucliweb/image/upload/f_auto/v1677268466/workshops/t3chfest-2023/images/alex-haney-CAhjZmVk5H4-unsplash.jpg');
+  background-image: url("https://res.cloudinary.com/nucliweb/image/upload/f_auto/v1677268466/workshops/t3chfest-2023/images/alex-haney-CAhjZmVk5H4-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   height: 500px;
 }
+```
+
+## Load images via Cloudinary fetch
+
+We can tranform the images via Cloudinary fetch too. With this approach we don't neet to upload the images to Cloudinary console.
+
+### Update the HTML
+
+```html
+<img
+  src="https://res.cloudinary.com/nucliweb/image/fetch/f_auto/https://image-optim-cloudinary--image-optimization-workshop.netlify.app/images/news/pablo-merchan-montes-Orz90t6o0e4-unsplash.jpg"
+  class="img-fluid news-image"
+  alt=""
+/>
+```
+
+### Update the CSS
+
+```css
+.BgImage {
+  background-image: url("https://res.cloudinary.com/nucliweb/image/fetch/f_auto/https://image-optim-cloudinary--image-optimization-workshop.netlify.app/images/alex-haney-CAhjZmVk5H4-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 500px;
+}
+```
+
+#### Find and Replace
+
+We can use a regular expresion to automate the changes.
+
+**Find:**
+
+```
+src="images/
+```
+
+**Replace:**
+
+```
+src="https://res.cloudinary.com/nucliweb/image/fetch/f_auto/https://image-optim-cloudinary--image-optimization-workshop.netlify.app/images/
 ```
