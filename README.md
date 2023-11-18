@@ -140,6 +140,6 @@ We can use a regular expresion to automate the changes.
   <source type="image/avif" srcset="$1.avif">
   <source type="image/webp" srcset="$1.webp">
   <source type="image/jpeg" srcset="$1.jpeg">
-  <img src="$1.jpg" $2>
+  <img loading="lazy" src="$1.jpg" $2>
 </picture>
 ```
