@@ -116,6 +116,7 @@ Now, we need to update the HTML code to load the best image format.
   <source type="image/webp" srcset="images/news/news-detail-header.webp" />
   <source type="image/jpeg" srcset="images/news/news-detail-header.jpeg" />
   <img
+    loading="lazy"
     src="images/news/news-detail-header.jpg"
     class="img-fluid news-detail-image"
     alt="fine dining experience"
